@@ -3,7 +3,7 @@ function createLetter() {
   const inputValue = document.getElementById('carta-texto');
   const cartaGerada = document.getElementById('carta-gerada');
   if (inputValue.value === '') {
-    cartaGerada.textContent = 'Por favor, digite o conteúdo da carta';
+    cartaGerada.innerHTML = 'Por favor, digite o conteúdo da carta';
   } else {
     cartaGerada.appendChild(newElement);
     newElement.textContent = inputValue.value;
