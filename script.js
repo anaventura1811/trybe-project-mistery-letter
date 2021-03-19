@@ -92,16 +92,13 @@ btnAddLetter.addEventListener('click', () => {
   count.textContent = spans.length;
 });
 
-cartaGerada.addEventListener('click', () => {
-  while (cartaGerada.firstChild) {
-    cartaGerada.removeChild(cartaGerada.firstChild);
-  }
-});
-
 /* Consultei o código do colega Murilo Gonçalves para reestruturar a função que gera as cartas (createLetter):
 https://github.com/tryber/sd-010-a-project-mistery-letter/pull/11/files
 Observar o raciocínio do colega me ajudou a entender onde eu estava errando e porque meu código
  gerava uma tag span para frases inteiras (ao invés de uma por palavra);
+
+ onsultei código do colega Patrick Morais para corrigir erro na função createLetter (que não apagava a msg de alerta):
+ https://github.com/tryber/sd-010-a-project-mistery-letter/pull/6/files
 
 - Link para o pull request do colega Wanderson Sales:
 https://github.com/tryber/sd-010-a-project-mistery-letter/pull/8/files
