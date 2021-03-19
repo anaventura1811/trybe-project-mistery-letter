@@ -9,7 +9,6 @@ function addStyle() {
   const newStyle = arrStyles[randomizeStyles()];
   return newStyle;
 }
-console.log(addStyle());
 
 // Inclinação aleatória
 function randomizeIncline() {
@@ -49,22 +48,16 @@ function addSize() {
 
 const cartaGerada = document.getElementById('carta-gerada');
 
-function verifyInput() {
-  const input = document.getElementById('carta-texto');
-  if (input.value === '' || input.value === ' ') {
-    cartaGerada.textContent = 'Por favor, digite o conteúdo da carta.';
-  }
-}
-
 function createLetter() {
   const input = document.getElementById('carta-texto');
   const inputValue = input.value;
   const newArray = inputValue.split(' ');
-  verifyInput();
-  for (let key = 0; key < newArray.length; key += 1) {
-    const newElement = document.createElement('span');
-    const palavra = newArray[key];
-    if (palavra !== '') {
+  if (input.value === '' || input.value === ' ') {
+    cartaGerada.textContent = 'Por favor, digite o conteúdo da carta.';
+  } else {
+    cartaGerada.innerText = '';
+    for (let key = 0; key < newArray.length; key += 1) {
+      const newElement = document.createElement('span');
       newElement.textContent = newArray[key];
       newElement.classList.add(`${addStyle()}`);
       newElement.classList.add(`${addIncline()}`);
@@ -97,6 +90,12 @@ btnAddLetter.addEventListener('click', () => {
   const spans = document.getElementsByTagName('span');
   const count = document.getElementById('carta-contador');
   count.textContent = spans.length;
+});
+
+cartaGerada.addEventListener('click', () => {
+  while (cartaGerada.firstChild) {
+    cartaGerada.removeChild(cartaGerada.firstChild);
+  }
 });
 
 /* Consultei o código do colega Murilo Gonçalves para reestruturar a função que gera as cartas (createLetter):
