@@ -97,7 +97,7 @@ https://github.com/tryber/sd-010-a-project-mistery-letter/pull/11/files
 Observar o raciocínio do colega me ajudou a entender onde eu estava errando e porque meu código
  gerava uma tag span para frases inteiras (ao invés de uma por palavra);
 
- onsultei código do colega Patrick Morais para corrigir erro na função createLetter (que não apagava a msg de alerta):
+ Consultei código do colega Patrick Morais para corrigir erro nas linhas 57 e 58 da função createLetter (que não apagava a msg de alerta):
  https://github.com/tryber/sd-010-a-project-mistery-letter/pull/6/files
 
 - Link para o pull request do colega Wanderson Sales:
