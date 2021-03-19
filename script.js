@@ -52,7 +52,7 @@ const cartaGerada = document.getElementById('carta-gerada');
 function verifyInput() {
   const input = document.getElementById('carta-texto');
   if (input.value === '' || input.value === ' ') {
-    cartaGerada.innerHTML = 'Por favor, digite o conteúdo da carta.';
+    cartaGerada.textContent = 'Por favor, digite o conteúdo da carta.';
   }
 }
 
@@ -92,13 +92,23 @@ function generateNewStyles() {
 
 cartaGerada.addEventListener('click', generateNewStyles);
 
+// Contador de palavras - com base na solução proposta pelo colega Lucas André
+btnAddLetter.addEventListener('click', () => {
+  const spans = document.getElementsByTagName('span');
+  const count = document.getElementById('carta-contador');
+  count.textContent = spans.length;
+});
+
 /* Consultei o código do colega Murilo Gonçalves para reestruturar a função que gera as cartas (createLetter):
 https://github.com/tryber/sd-010-a-project-mistery-letter/pull/11/files
 Observar o raciocínio do colega me ajudou a entender onde eu estava errando e porque meu código
  gerava uma tag span para frases inteiras (ao invés de uma por palavra);
 
-- Link para o pull do colega Wanderson Sales:
+- Link para o pull request do colega Wanderson Sales:
 https://github.com/tryber/sd-010-a-project-mistery-letter/pull/8/files
+
+- Link para o pull request do colega Lucas André:
+https://github.com/tryber/sd-010-a-project-mistery-letter/pull/7/files
 
  Além disso, consultei tbm as seguintes referências:
 --> https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/ (para gerar estilos aleatórios)
