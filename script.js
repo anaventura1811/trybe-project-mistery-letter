@@ -1,63 +1,67 @@
+// Estilo aleatório
+function randomizeStyles() {
+  const arrStyles = ['newspaper', 'magazine1', 'magazine2'];
+  const randomStyles = Math.floor(Math.random() * arrStyles.length);
+  return randomStyles;
+}
+function addStyle() {
+  const arrStyles = ['newspaper', 'magazine1', 'magazine2'];
+  const newStyle = arrStyles[randomizeStyles()];
+  return newStyle;
+}
+console.log(addStyle());
+
+// Inclinação aleatória
+function randomizeIncline() {
+  const arrIncline = ['skewleft', 'skewright'];
+  const randomIncline = Math.floor(Math.random() * arrIncline.length);
+  return randomIncline;
+}
+function addIncline() {
+  const arrIncline = ['skewleft', 'skewright'];
+  const newIncline = arrIncline[randomizeIncline()];
+  return newIncline;
+}
+
+// Rotação aleatória
+function randomizeRotation() {
+  const arrRotate = ['rotateleft', 'rotateright'];
+  const randomRotation = Math.floor(Math.random() * arrRotate.length);
+  return randomRotation;
+}
+function addRotation() {
+  const arrRotate = ['rotateleft', 'rotateright'];
+  const newRotation = arrRotate[randomizeRotation()];
+  return newRotation;
+}
+
+// Tamanho aleatório
+function randomizeSizes() {
+  const arrSizes = ['medium', 'big', 'reallybig'];
+  const randomSizes = Math.floor(Math.random() * arrSizes.length);
+  return randomSizes;
+}
+function addSize() {
+  const arrSizes = ['medium', 'big', 'reallybig'];
+  const newSize = arrSizes[randomizeSizes()];
+  return newSize;
+}
+
 function createLetter() {
   const newElement = document.createElement('span');
   const inputValue = document.getElementById('carta-texto');
   const cartaGerada = document.getElementById('carta-gerada');
-  if (inputValue.value === '') {
+  if (inputValue.value === '' || inputValue.value === ' ') {
     cartaGerada.innerHTML = 'Por favor, digite o conteúdo da carta.';
   } else {
     cartaGerada.appendChild(newElement);
     newElement.textContent = inputValue.value;
+    newElement.classList.add(`${addStyle()}`);
+    newElement.classList.add(`${addIncline()}`);
+    newElement.classList.add(`${addRotation()}`);
+    newElement.classList.add(`${addSize()}`);
   }
 }
 
 const btnAddLetter = document.getElementById('criar-carta');
 btnAddLetter.addEventListener('click', createLetter);
-
-// Testes
-/* const objStyle = {
-  newspaper: 'newspaper',
-  magazineOne: 'magazine1',
-  magazineTwo: 'magazine2',
-};
-const objSize = {
-  medium: 'medium',
-  big: 'big',
-  reallybig: 'reallybig',
-};
-const objRotation = {
-  rotateleft: 'rotateleft',
-  rotateright: 'rotateright',
-};
-const objIncline = {
-  skewleft: 'skewleft',
-  skewright: 'skewright',
-};
-
-function randomnewStyle() {
-  const randomStyle = Math.random(objStyle.value);
-  return `${randomStyle}`;
-}
-
-function randomNewSize() {
-  const randomSize = Math.random(objSize.value);
-  return `${randomSize}`;
-}
-function randomnewIncline() {
-  const randomIncline = Math.ceil(Math.random(objIncline.value));
-  return toString(randomIncline);
-}
-// function randomNewRotation() {
-// const randomRotation = Math.random(objRotation.value);
-//  return `${randomRotation}`;
-// }
-
-function setNewStylesToLetter() {
-  const span = document.getElementsByTagName('span');
-  // span.classList.add(randomNewRotation());
-  span.classList.add(randomNewSize());
-  span.classList.add(randomnewIncline());
-  span.classList.add(randomnewStyle());
-}
-console.log(setNewStylesToLetter());
-
-btnAddLetter.addEventListener('click', setNewStylesToLetter); */
