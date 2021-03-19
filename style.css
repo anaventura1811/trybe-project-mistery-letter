@@ -10,7 +10,7 @@
   text-transform: uppercase;
 }
 
-.magazine2 { background-image: url ('images/pink-pattern.png');
+.magazine2 { background-image: 'images/pink-pattern.png';
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: fuchsia;
   font-weight: 900;
@@ -33,7 +33,7 @@
 }
 
 .rotateright {
-  transform: matrix(0.996, 0.087, -0.087, 0.996, 0, 0);
+  transform: rotate(5deg);
 }
 
 .skewleft {
