@@ -47,21 +47,42 @@ function addSize() {
   return newSize;
 }
 
-function createLetter() {
-  const newElement = document.createElement('span');
-  const inputValue = document.getElementById('carta-texto');
+function verifyInput() {
+  const input = document.getElementById('carta-texto');
   const cartaGerada = document.getElementById('carta-gerada');
-  if (inputValue.value === '' || inputValue.value === ' ') {
+  if (input.value === '' || input.value === ' ') {
     cartaGerada.innerHTML = 'Por favor, digite o conteúdo da carta.';
-  } else {
-    cartaGerada.appendChild(newElement);
-    newElement.textContent = inputValue.value;
-    newElement.classList.add(`${addStyle()}`);
-    newElement.classList.add(`${addIncline()}`);
-    newElement.classList.add(`${addRotation()}`);
-    newElement.classList.add(`${addSize()}`);
   }
 }
 
+function createLetter() {
+  const input = document.getElementById('carta-texto');
+  const inputValue = input.value;
+  const newArray = inputValue.split(' ');
+  const cartaGerada = document.getElementById('carta-gerada');
+  verifyInput();
+  for (let key = 0; key < newArray.length; key += 1) {
+    const newElement = document.createElement('span');
+    const palavra = newArray[key];
+
+    if (palavra !== '') {
+      newElement.textContent = newArray[key];
+      newElement.classList.add(`${addStyle()}`);
+      newElement.classList.add(`${addIncline()}`);
+      newElement.classList.add(`${addRotation()}`);
+      newElement.classList.add(`${addSize()}`);
+      cartaGerada.appendChild(newElement);
+    }
+  }
+}
 const btnAddLetter = document.getElementById('criar-carta');
 btnAddLetter.addEventListener('click', createLetter);
+
+/* Consultei o código do colega Murilo Gonçalves para reestruturar a função que gera as cartas (createLetter):
+https://github.com/tryber/sd-010-a-project-mistery-letter/pull/11/files
+ Observar o raciocínio do colega me ajudou a entender onde eu estava errando e porque meu código
+ gerava uma tag span para frases inteiras (ao invés de uma por palavra);
+ Além disso, consultei tbm as seguintes referências:
+--> https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/ (para gerar estilos aleatórios)
+--> https://www.w3schools.com/cssref/pr_background-image.asp (para entender como funciona o background-image)
+ */
