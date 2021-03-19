@@ -48,6 +48,7 @@ function addSize() {
 }
 
 const cartaGerada = document.getElementById('carta-gerada');
+
 function verifyInput() {
   const input = document.getElementById('carta-texto');
   if (input.value === '' || input.value === ' ') {
@@ -63,7 +64,6 @@ function createLetter() {
   for (let key = 0; key < newArray.length; key += 1) {
     const newElement = document.createElement('span');
     const palavra = newArray[key];
-
     if (palavra !== '') {
       newElement.textContent = newArray[key];
       newElement.classList.add(`${addStyle()}`);
@@ -77,7 +77,7 @@ function createLetter() {
 const btnAddLetter = document.getElementById('criar-carta');
 btnAddLetter.addEventListener('click', createLetter);
 
-// Para esta função, tomei como base o código do colega Wanderson Sales
+// Para a função generateNewStyles, tomei como base o código do colega Wanderson Sales
 
 function generateNewStyles() {
   const spanElements = document.getElementsByTagName('span');
@@ -94,11 +94,13 @@ cartaGerada.addEventListener('click', generateNewStyles);
 
 /* Consultei o código do colega Murilo Gonçalves para reestruturar a função que gera as cartas (createLetter):
 https://github.com/tryber/sd-010-a-project-mistery-letter/pull/11/files
-Link para o pull do colega Wanderson Sales:
-https://github.com/tryber/sd-010-a-project-mistery-letter/pull/8/files
- Observar o raciocínio do colega me ajudou a entender onde eu estava errando e porque meu código
+Observar o raciocínio do colega me ajudou a entender onde eu estava errando e porque meu código
  gerava uma tag span para frases inteiras (ao invés de uma por palavra);
+
+- Link para o pull do colega Wanderson Sales:
+https://github.com/tryber/sd-010-a-project-mistery-letter/pull/8/files
+
  Além disso, consultei tbm as seguintes referências:
 --> https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/ (para gerar estilos aleatórios)
---> https://www.w3schools.com/cssref/pr_background-image.asp (para entender como funciona o background-image)
+--> https://www.w3schools.com/cssref/pr_background-image.asp (para entender como funciona a propriedade background-image)
  */
